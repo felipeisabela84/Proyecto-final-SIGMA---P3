@@ -43,6 +43,7 @@ Consulta el reporte HTML generado con ExtentReports, incluyendo las evidencias
 capturadas durante la ejecución de las pruebas Selenium:
 
 👉 [Ver reporte HTML de pruebas E2E](https://felipeisabela84.github.io/Proyecto-final-SIGMA---P3/Evidencias/ReporteHTML/ReporteSIGMA.html)
+
 La estructura del repositorio incluye los módulos principales de la aplicación, las pruebas unitarias y el proyecto de pruebas E2E.
 
 ---
