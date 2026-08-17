@@ -128,7 +128,9 @@ ipch/
 
 # Visual Studio Trace Files
 *.e2e
-
+!SIGMA.Tests.E2E/
+!SIGMA.Tests.E2E/**/*.cs
+!SIGMA.Tests.E2E/*.csproj
 # TFS 2012 Local Workspace
 $tf/
 
