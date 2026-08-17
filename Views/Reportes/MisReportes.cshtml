@@ -1,0 +1,20 @@
+﻿@model List<ReporteApagon>
+
+<h2>Mis Reportes</h2>
+
+<table class="table">
+    <thead>
+        <tr><th>Zona</th><th>Fecha</th><th>Causa</th><th>Estado</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var r in Model)
+        {
+            <tr>
+                <td>@r.Zona</td>
+                <td>@r.FechaHora.ToString("g")</td>
+                <td>@r.Causa</td>
+                <td>@r.Estado</td>
+            </tr>
+        }
+    </tbody>
+</table>

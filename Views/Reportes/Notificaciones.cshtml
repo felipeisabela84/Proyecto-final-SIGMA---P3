@@ -1,0 +1,23 @@
+﻿@model List<Notificacion>
+
+<h2><i class="bi bi-bell"></i> Mis Notificaciones</h2>
+
+@if (Model == null || !Model.Any())
+{
+    <div class="text-center text-muted py-5">
+        <i class="bi bi-bell-slash" style="font-size: 3rem;"></i>
+        <p class="mt-3">Aún no tienes notificaciones.</p>
+    </div>
+}
+else
+{
+    <ul class="list-group">
+        @foreach (var n in Model)
+        {
+            <li class="list-group-item @(n.Leida ? "" : "fw-bold")">
+                <i class="bi bi-bell-fill me-2"></i>@n.Mensaje
+                <span class="text-muted small">— @n.Fecha.ToString("g")</span>
+            </li>
+        }
+    </ul>
+}

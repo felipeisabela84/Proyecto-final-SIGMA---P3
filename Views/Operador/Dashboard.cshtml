@@ -1,0 +1,40 @@
+﻿@{
+    var porZona = (Dictionary<string, int>)ViewBag.PorZona;
+    var causas = (Dictionary<string, int>)ViewBag.CausasFrecuentes;
+    var duracionPromedio = (double)ViewBag.DuracionPromedio;
+}
+
+<h2>Dashboard de Estadísticas</h2>
+
+<p><strong>Duración promedio de apagones:</strong> @duracionPromedio.ToString("0.0") minutos</p>
+
+<h4>Reportes por Zona</h4>
+<canvas id="chartZona" width="400" height="200"></canvas>
+
+<h4>Causas más frecuentes</h4>
+<canvas id="chartCausas" width="400" height="200"></canvas>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<script>
+    const zonaLabels = @Html.Raw(Json.Serialize(porZona.Keys));
+    const zonaData = @Html.Raw(Json.Serialize(porZona.Values));
+
+    new Chart(document.getElementById('chartZona'), {
+        type: 'bar',
+        data: {
+            labels: zonaLabels,
+            datasets: [{ label: 'Reportes por zona', data: zonaData, backgroundColor: '#0d6efd' }]
+        }
+    });
+
+    const causaLabels = @Html.Raw(Json.Serialize(causas.Keys));
+    const causaData = @Html.Raw(Json.Serialize(causas.Values));
+
+    new Chart(document.getElementById('chartCausas'), {
+        type: 'bar',
+        data: {
+            labels: causaLabels,
+            datasets: [{ label: 'Causas más frecuentes', data: causaData, backgroundColor: '#dc3545' }]
+        }
+    });
+</script>

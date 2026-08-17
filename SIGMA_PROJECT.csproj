@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UserSecretsId>aspnet-SIGMA_PROJECT-5015bd13-a9d7-4051-b36b-0161e101dbdc</UserSecretsId>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.29" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.29" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.29" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.29" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.29" />
+		<PackageReference Include="Selenium.Support" Version="4.47.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Remove="SIGMA.Tests.Unit\**\*.cs" />
+		<Content Remove="SIGMA.Tests.Unit\**\*" />
+		<EmbeddedResource Remove="SIGMA.Tests.Unit\**\*" />
+		<None Remove="SIGMA.Tests.Unit\**\*" />
+
+		<Compile Remove="SIGMA.Tests.E2E\**\*.cs" />
+		<Content Remove="SIGMA.Tests.E2E\**\*" />
+		<EmbeddedResource Remove="SIGMA.Tests.E2E\**\*" />
+		<None Remove="SIGMA.Tests.E2E\**\*" />
+	</ItemGroup>
+
+</Project>

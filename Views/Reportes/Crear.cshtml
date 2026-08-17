@@ -1,0 +1,30 @@
+﻿@model ReporteApagon
+
+<h2>Reportar Apagón</h2>
+
+<form asp-action="Crear" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="Zona" class="form-label">Zona</label>
+        <input asp-for="Zona" class="form-control" />
+        <span asp-validation-for="Zona" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="FechaHora" class="form-label">Fecha y hora</label>
+        <input asp-for="FechaHora" type="datetime-local" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="DuracionMinutos" class="form-label">Duración estimada (minutos)</label>
+        <input asp-for="DuracionMinutos" type="number" min="0" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Causa" class="form-label">Causa (opcional)</label>
+        <input asp-for="Causa" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Reportar</button>
+</form>

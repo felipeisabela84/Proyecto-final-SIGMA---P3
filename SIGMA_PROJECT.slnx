@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="SIGMA.Tests.E2E/SIGMA.Tests.E2E.csproj" Id="2bc935b6-2893-4472-80f2-04e458bf6e5e" />
+  <Project Path="SIGMA.Tests.Unit/SIGMA.Tests.Unit.csproj" />
+  <Project Path="SIGMA_PROJECT.csproj" />
+</Solution>

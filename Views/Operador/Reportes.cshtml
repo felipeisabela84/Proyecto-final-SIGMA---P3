@@ -1,0 +1,50 @@
+﻿@model List<ReporteApagon>
+
+<h2>Reportes de Apagones</h2>
+
+<form method="get" class="row g-2 mb-3">
+    <div class="col-auto">
+        <input type="text" name="zona" value="@ViewBag.Zona" placeholder="Filtrar por zona" class="form-control" />
+    </div>
+    <div class="col-auto">
+        <select name="estado" class="form-control">
+            <option value="">Todos los estados</option>
+            @foreach (var e in Enum.GetValues<EstadoReporte>())
+            {
+                <option value="@e" selected="@(ViewBag.Estado?.Equals(e) == true)">@e</option>
+            }
+        </select>
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-secondary">Filtrar</button>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr><th>Zona</th><th>Fecha</th><th>Causa</th><th>Estado</th><th>Acción</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var r in Model)
+        {
+            <tr>
+                <td>@r.Zona</td>
+                <td>@r.FechaHora.ToString("g")</td>
+                <td>@r.Causa</td>
+                <td>@r.Estado</td>
+                <td>
+                    <form asp-action="CambiarEstado" method="post" class="d-flex gap-1">
+                        <input type="hidden" name="reporteId" value="@r.Id" />
+                        <select name="nuevoEstado" class="form-select form-select-sm">
+                            @foreach (var e in Enum.GetValues<EstadoReporte>())
+                            {
+                                <option value="@e" selected="@(e == r.Estado)">@e</option>
+                            }
+                        </select>
+                        <button type="submit" class="btn btn-sm btn-primary">Actualizar</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
